@@ -10,6 +10,7 @@ class Account {
 private:
     static int objectsCount;
     static double defaultInterestRate;
+
     int id;
     double balance;
     double interestRate;

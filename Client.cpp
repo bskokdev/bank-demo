@@ -5,6 +5,8 @@
 Client::Client(int c, string n) {
     this->id = c;
     this->name = std::move(n);
+
+    Client::objectsCount++;
 }
 
 // getters

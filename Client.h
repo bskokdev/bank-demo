@@ -7,6 +7,8 @@ using namespace std;
 
 class Client {
 private:
+    static int objectsCount;
+
     int id;
     string name;
 public:
