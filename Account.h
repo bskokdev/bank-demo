@@ -8,6 +8,8 @@ using namespace std;
 
 class Account {
 private:
+    static int objectsCount;
+    static double defaultInterestRate;
     int id;
     double balance;
     double interestRate;
@@ -22,7 +24,7 @@ public:
 
     // getters
     int getId() const;
-    int getBalance() const;
+    double getBalance() const;
     double getInterestRate() const;
     Client *getOwner() const;
     Client *getPartner() const;

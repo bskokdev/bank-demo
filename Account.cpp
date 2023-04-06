@@ -1,10 +1,15 @@
 #include "Account.h"
 
+int Account::objectsCount = 0;
+double Account::defaultInterestRate = 0.01;
+
 Account::Account(int id, Client *owner) : id(id), owner(owner) {
     this->balance = 0;
-    this->interestRate = 0.01;
+    this->interestRate = defaultInterestRate;
     this->owner = nullptr;
     this->partner = nullptr;
+
+    Account::objectsCount++; // increment the number of objects
 }
 
 Account::Account(int id, double interestRate, Client *owner) {
@@ -13,14 +18,18 @@ Account::Account(int id, double interestRate, Client *owner) {
     this->interestRate = interestRate;
     this->owner = owner;
     this->partner = nullptr;
+
+    Account::objectsCount++; // increment the number of objects
 }
 
 Account::Account(int id, Client *owner, Client *partner) {
     this->id = id;
     this->balance = 0;
-    this->interestRate = interestRate;
+    this->interestRate = defaultInterestRate;
     this->owner = owner;
     this->partner = partner;
+
+    Account::objectsCount++; // increment the number of objects
 }
 
 Account::Account(int id, double interestRate, Client *owner, Client *partner) {
@@ -29,13 +38,15 @@ Account::Account(int id, double interestRate, Client *owner, Client *partner) {
     this->interestRate = interestRate;
     this->owner = owner;
     this->partner = partner;
+
+    Account::objectsCount++; // increment the number of objects
 }
 
 int Account::getId() const {
     return id;
 }
 
-int Account::getBalance() const {
+double Account::getBalance() const {
     return balance;
 }
 
