@@ -1,8 +1,10 @@
 #include "Client.h"
 
+#include <utility>
+
 Client::Client(int c, string n) {
     this->id = c;
-    this->name = n;
+    this->name = std::move(n);
 }
 
 // getters
