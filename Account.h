@@ -8,20 +8,13 @@ using namespace std;
 
 class Account {
 private:
-    static int objectsCount;
-    static double defaultInterestRate;
-
     int id;
     double balance;
     double interestRate;
-
     Client* owner;
-    Client* partner;
 public:
-    Account(int id, Client *owner);
-    Account(int id, double interestRate, Client *owner);
-    Account(int id, Client *owner, Client *partner);
-    Account(int id, double interestRate, Client *owner, Client *partner);
+    explicit Account(Client* owner); // to prevent implicit conversion
+    Account(double interestRate, Client *owner);
 
     // getters
     int getId() const;
@@ -35,6 +28,9 @@ public:
     void deposit(double a);
     bool withdraw(double a);
     void addInterest();
+
+    static int objectsCount;
+    static double defaultInterestRate;
 };
 
 #endif

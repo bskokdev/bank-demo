@@ -7,11 +7,10 @@ using namespace std;
 
 class Client {
 private:
-    static int objectsCount;
-
     int id;
     string name;
 public:
+    static int objectsCount;
     Client(int c, string n);
 
     // getters

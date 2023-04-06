@@ -3,4 +3,4 @@ project(untitled)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(untitled main.cpp Client.cpp Client.h Account.cpp Account.h Bank.cpp Bank.h)
+add_executable(untitled main.cpp Client.cpp Client.h Account.cpp Account.h Bank.cpp Bank.h PartnerAccount.cpp PartnerAccount.h ClientAccount.cpp ClientAccount.h)

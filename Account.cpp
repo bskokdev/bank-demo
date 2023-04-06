@@ -1,43 +1,22 @@
 #include "Account.h"
 
-int Account::objectsCount = 0;
 double Account::defaultInterestRate = 0.01;
+int Account::objectsCount = 0;
 
-Account::Account(int id, Client *owner) : id(id), owner(owner) {
-    this->balance = 0;
-    this->interestRate = defaultInterestRate;
-    this->owner = nullptr;
-    this->partner = nullptr;
-
-    Account::objectsCount++; // increment the number of objects
-}
-
-Account::Account(int id, double interestRate, Client *owner) {
-    this->id = id;
-    this->balance = 0;
-    this->interestRate = interestRate;
-    this->owner = owner;
-    this->partner = nullptr;
-
-    Account::objectsCount++; // increment the number of objects
-}
-
-Account::Account(int id, Client *owner, Client *partner) {
-    this->id = id;
+Account::Account(Client* owner) {
+    this->id = rand() % 1000;
     this->balance = 0;
     this->interestRate = defaultInterestRate;
     this->owner = owner;
-    this->partner = partner;
 
     Account::objectsCount++; // increment the number of objects
 }
 
-Account::Account(int id, double interestRate, Client *owner, Client *partner) {
-    this->id = id;
+Account::Account(double interestRate, Client *owner) {
+    this->id = rand() % 1000;
     this->balance = 0;
     this->interestRate = interestRate;
     this->owner = owner;
-    this->partner = partner;
 
     Account::objectsCount++; // increment the number of objects
 }
@@ -56,10 +35,6 @@ double Account::getInterestRate() const {
 
 Client *Account::getOwner() const {
     return owner;
-}
-
-Client *Account::getPartner() const {
-    return partner;
 }
 
 void Account::deposit(double a) {
